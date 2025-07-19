@@ -27,6 +27,7 @@ const Header = () => {
 };
 
 const MainHeader = styled.div`
+  position: relative;
   padding: 16px 32px;
   border-bottom: 1px solid ${COLORS.gray[300]};
 
@@ -35,7 +36,11 @@ const MainHeader = styled.div`
 `;
 
 const Nav = styled.nav`
+  position: absolute;
+  left: 0;
+  right: 0;
   margin-inline: auto;
+  width: fit-content;
   display: flex;
   gap: 2rem;
 `;
