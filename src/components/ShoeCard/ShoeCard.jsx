@@ -25,17 +25,21 @@ const ShoeCard = ({
   // both on-sale and new-release, but in this case, `on-sale`
   // will triumph and be the variant used.
   // prettier-ignore
+
   const variant = typeof salePrice === 'number'
     ? 'on-sale'
     : isNewShoe(releaseDate)
       ? 'new-release'
       : 'default'
 
+  const tag = variant === 'on-sale' ? 'Sale' : variant === 'new-release' ? 'Just Released' : '';
+
   return (
     <Link href={`/shoe/${slug}`}>
       <Wrapper>
         <ImageWrapper>
           <Image alt="" src={imageSrc} />
+          <Tagged><span>{ tag }</span></Tagged>
         </ImageWrapper>
         <Spacer size={12} />
         <Row>
@@ -66,6 +70,18 @@ const ImageWrapper = styled.div`
 const Image = styled.img`
   width: 100%;
   height: auto;
+`;
+
+const Tagged = styled.div`
+  color: white;
+  background: red;
+  position: absolute;
+  top: 12px;
+  right: -4px;
+  padding: 8px 12px;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 700;
 `;
 
 const Row = styled.div`
